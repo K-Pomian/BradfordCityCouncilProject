@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" lang="en-GB"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="flood-monitors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="flood-monitors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var floodMonitors = document.getElementById('flood-monitors');
+        $.getJSON('/api/chart/chart?test=test', function (data) {
+            var floodChart = new Chart(floodMonitors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="gully-monitors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="gully-monitors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var gullyMonitors = document.getElementById('gully-monitors');
+        $.getJSON('/api/chart/chart?test=test2', function (data) {
+            var gullyChart = new Chart(gullyMonitors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="water-purity-sensors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="water-purity-sensors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var waterPuritySensors = document.getElementById('water-purity-sensors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var waterPurityChart = new Chart(waterPuritySensors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="river-level-monitors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="river-level-monitors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var riverLevelMonitors = document.getElementById('river-level-monitors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var riverLevelChart = new Chart(riverLevelMonitors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="co2-sensors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="co2-sensors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var co2Sensors = document.getElementById('co2-sensors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var co2Chart = new Chart(co2Sensors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="parking-sensors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="parking-sensors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var parkingSensors = document.getElementById('parking-sensors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var parkingChart = new Chart(parkingSensors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="road-monitors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="road-monitors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var roadMonitors = document.getElementById('road-monitors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var roadChart = new Chart(roadMonitors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="sound-sensors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="sound-sensors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var soundSensors = document.getElementById('sound-sensors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var soundChart = new Chart(soundSensors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="traffic-flow-sensors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="traffic-flow-sensors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var trafficFlowSensors = document.getElementById('traffic-flow-sensors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var trafficFlowChart = new Chart(trafficFlowSensors, data);
+        });
+    </script>
+</div>
+
+<div th:fragment="road-sensors-chart">
+    <div class="chart-container" style="position: relative; height:75vh; width:100%">
+        <canvas id="road-sensors" width="auto" height="auto"></canvas>
+    </div>
+    <script>
+        var roadSensors = document.getElementById('road-sensors');
+        $.getJSON('/api/chart/chart?test=test3', function (data) {
+            var roadSensorsChart = new Chart(roadSensors, data);
+        });
+    </script>
+</div>
+</body>
+</html>

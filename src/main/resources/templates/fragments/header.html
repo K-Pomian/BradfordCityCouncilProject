@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" lang="en-GB"
+      xmlns:th="http://www.thymeleaf.org">
+
+<header aria-label="BMDC Print logo" th:fragment="headerLogo">
+    <div class="BMDClogo"></div>
+</header>
+
+<div th:fragment="header">
+    <div class="container">
+        <div class="topHeader">
+            <header aria-label="BMDC Logo">
+                <a th:href="@{/default}">
+                    <div class="BMDClogo"></div>
+                </a>
+            </header>
+
+            <div class="topRightHeader">
+                <p th:utext="${emailValue}"></p>
+                <form th:action="@{/logout}" method="get">
+                    <button type="Submit" class="btn btn-primary logoutbtn" name="registration">LOGOUT</button>
+                </form>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="true">
+                        <th:block th:utext="${currentPage}"></th:block>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a th:href="@{/dop}" data-value="Department of Place">Department of Place</a></li>
+                        <li><a th:href="@{/docs}" data-value="Department of Children Services">Department of Children
+                            Services</a></li>
+                        <li><a th:href="@{/doas}" data-value="Department of Adult Services">Department of Adult
+                            Services</a></li>
+                        <li><a th:href="@{/cw}" data-value="Council Wide">Council Wide</a></li>
+                        <li><a th:href="@{/admin/panel}" data-value="Admin Panel">Admin Panel</a></li>
+                    </ul>
+                </div>
+                <script>
+                    $(".dropdown-menu li a").click(function () {
+                        $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+                        $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+                    });
+                </script>
+            </div>
+
+            <div class="topRightHeaderMobile">
+                <p th:utext="${emailValue}"></p>
+                <form th:action="@{/logout}" method="get">
+                    <button type="Submit" class="btn btn-primary logoutbtn" name="registration">LOGOUT</button>
+                </form>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="true">
+                        Admin Panel
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <li><a th:href="@{/dop}" data-value="Department of Place">Department of Place</a></li>
+                        <li><a th:href="@{/docs}" data-value="Department of Children Services">Department of Children
+                            Services</a></li>
+                        <li><a th:href="@{/doas}" data-value="Department of Adult Services">Department of Adult
+                            Services</a></li>
+                        <li><a th:href="@{/cw}" data-value="Council Wide">Council Wide</a></li>
+                        <li><a th:href="@{/admin/panel}" data-value="Admin Panel">Admin Panel</a></li>
+                    </ul>
+                </div>
+                <script>
+                    $(".dropdown-menu li a").click(function () {
+                        $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+                        $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+                    });
+                </script>
+                <nav aria-label="Mobile Navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" lang="en-GB"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body style="position: relative; min-height: 100%; top: 0;">
+<div th:fragment="addUserFragment">
+    <div class="col-md-6 col-md-offset-4">
+        <form autocomplete="off" action="#" th:action="@{/admin/panel}"
+              th:object="${user}" method="post" class="form-horizontal"
+              role="form">
+            <h2>Adding user form</h2>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                           class="validation-message"></label>
+                    <input type="text" th:field="*{name}" placeholder="Name"
+                           class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                           class="validation-message"></label>
+                    <input type="text" th:field="*{lastName}"
+                           placeholder="Last Name" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{email}" placeholder="Email"
+                           class="form-control"/> <label
+                        th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                        class="validation-message"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <input type="password" th:field="*{password}"
+                           placeholder="Password" class="form-control"/> <label
+                        th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                        class="validation-message"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <p>Roles:</p>
+                    <label th:errors="*{role}"
+                           class="validation-message"></label>
+                    <ul>
+                        <li th:each="feat : ${T(uk.co.bradford.iot.service.RoleEnum).values()}">
+                            <input type="checkbox" th:field="*{role}" th:value="${feat}" />
+                            <label th:text="${feat}"></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-primary btn-block">Add User</button>
+                </div>
+            </div>
+
+            <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+
+        </form>
+    </div>
+</div>
+
+<div th:fragment="userListFragment">
+   <h1>userListFragment</h1>
+</div>
+</body>
+</html>

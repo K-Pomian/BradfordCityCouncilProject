@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" lang="en-GB"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Bradford Council IoT">
+    <meta name="author" content="Team15">
+    <meta property="og:description" content="Bradford Council">
+    <meta property="og:title" content="Bradford Council">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="">
+    <meta property="og:site_name" content="Bradford Metropolitan District Council - Portal for monitoring IoT data">
+    <meta property="og:image" content="">
+
+    <title>Login | Bradford Council IoT Data</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+
+    <script th:src="@{/js/jquery-3.3.1.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <img th:src="@{/images/logoBMDC.png}" class="img-responsive center-block" width="300" height="300" alt="Logo"/>
+    <form th:action="@{/login}" method="POST" class="form-signin">
+        <h3 class="form-signin-heading" th:text="Welcome"></h3>
+        <br/>
+
+        <input type="text" id="email" name="email" th:placeholder="Email"
+               class="form-control"/> <br/>
+        <input type="password" th:placeholder="Password"
+               id="password" name="password" class="form-control"/> <br/>
+
+        <div align="center" th:if="${param.error}">
+            <p style="font-size: 20px; color: #FF1C19;">Email or Password invalid, please verify</p>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block logoutbtn" name="Submit" value="Login" type="Submit"
+                th:text="Login"></button>
+    </form>
+</div>
+</body>
+</html>
